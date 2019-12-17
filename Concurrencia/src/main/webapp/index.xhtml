@@ -1,17 +1,30 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Pruebas</title>
-        <h:outputScript  name="ClientePrueba.js"/>
+        <!--<h:outputScript  name="ClientePrueba.js"/>-->
     </h:head>
     <h:body>
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        <p:growl life="3000" globalOnly="true"/>
+
+        <h:form id="frmRegistraraPersona">
+            <h:panelGrid columns="2">
+                <p:commandButton value="Registrar" update=":frmListaPersona"
+                                 actionListener="#{personaC.registrar()}"/>
+                <p:commandButton value="Actualizar recibido por el async :,v" update=":frmListaPersona"
+                                 actionListener="#{personaC.actualizarLista()}"/>
+            </h:panelGrid>
+        </h:form>
+        <h:form id="frmListaPersona">
+            <p:dataTable id="tabla" value="#{personaC.listaPersona}" var="persona">
+                <p:column headerText="Nombres">
+                    <h:outputText value="#{persona.NOMPER}"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
     </h:body>
 </html>
 

@@ -1,6 +1,5 @@
 package dao;
 
-import java.util.List;
 import modelo.Persona;
 
 /**

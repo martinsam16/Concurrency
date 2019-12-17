@@ -1,4 +1,7 @@
-
+/**
+ * Ejemplo de cliente ws js
+ * @type {WebSocket}
+ */
 var socket = new WebSocket('ws://' + location.hostname + (location.port ? ':' + location.port : '') + '/Concurrencia/persona');
 
 enviar = function (mensaje) {
